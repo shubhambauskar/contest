@@ -1,0 +1,29 @@
+<div class="jumborton col-xs-8 col-xs-offset-2">
+    <div class="container"> 
+        <h1>All Contests</h1>
+
+
+
+    <% @contests.each do |contest| %>
+                <div class = "contest-title">
+                    <%= link_to contest.title, contest_path(contest) %>
+                </div>
+                <div class= "contest-body">
+                    <%= truncate(contest.description, length:100) %><br>    
+                    <%= contest.categories %>
+                    <%= contest.start_date %>
+                    <%= contest.end_date %> <br>
+                    <%= contest.locations %><br>
+                </div>
+                <div class="contest_actions">
+                  <%= link_to "Edit This contest", edit_contest_path(contest), class: "btn btn-xs btn-primary" %>
+                  <%= link_to "Delete This contest", contest_path(contest), 
+                      method: :delete,
+                      data: { comfirm: "Are you sure you want to delete the contest?"}, 
+                      class: "btn btn-xs btn-danger" %>
+                </div>
+         <% end %>    
+    </div>
+</div>
+
+   
