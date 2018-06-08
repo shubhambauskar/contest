@@ -1,9 +1,9 @@
-<div class= "register-photo">
-    <%= render 'shared/errors', obj: @user %> 
+<div class= "register-photo"> 
+    <%= render 'shared/errors', obj: @user %>
         <div class="form-container">
             <div class="image-holder"></div> 
             <%= form_for @user do |f| %>     
-                     <h2 class="text-center"> <strong>Create</strong> an Account </h2>
+                     <h2 class="text-center"> <strong>Edit</strong> your Account </h2>
                      <div class="form-group">
                         <%= f.text_field :username, class: "form-control", placeholder: "Enter Username" %>
                      </div>
@@ -15,7 +15,7 @@
                      </div>             
                     <div class="row">
                    
-                        <%= f.submit "Sign Up",  class: "btn btn-primary btn-block"%>
+                        <%= f.submit "Update your account",  class: "btn btn-primary btn-block"%>
                     </div>
                     </div>
                 </div>    
