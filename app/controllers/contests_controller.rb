@@ -12,10 +12,12 @@ class ContestsController < ApplicationController
     end    
     
     def create
+        debbuger
         @contest = Contest.new(contest_params)
+        @contest.user = User.first
         if @contest.save
-            flash[:notice] = "contest was successfully created"
-           redirect_to article_path(@article) 
+            flash[:notice] = "Contest successfully created"
+           redirect_to contest_path(@contest) 
         else
             render 'new' 
         end 
@@ -24,24 +26,24 @@ class ContestsController < ApplicationController
     def update
         @contest = Contest.find(params[:id])
         if @contest.update(contest_params)
-            flash[:notice] = "contest was succesfully updated"
+            flash[:notice] = "Contest succesfully updated"
             redirect_to contest_path(@contest)
         else
             render 'edit'
         end    
     end    
         def contest_params
-            params.require(:article).permit(:title, :categories, :start, :end, :description, :locations, :terms_and_conditions)
+            params.require(:contest).permit(:title, :categories, :start, :end, :description, :locations, :terms_and_conditions)
         end
     
     def show
-      @article = Contest.find(params[:id])  
+      @contest = Contest.find(params[:id])  
     end  
     
     def destroy
         @contest = Contest.find(params[:id]).destroy
         @contest.destroy
-        flash[:notice] = "contest was successfully deleted"
+        flash[:notice] = "Contest successfully deleted"
         redirect_to contests_path
     end    
     
