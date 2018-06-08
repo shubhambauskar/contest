@@ -15,4 +15,9 @@
     margin-top: 0;
 }
 
-
+.register-photo .image-holder {
+  display:table-cell;
+  width:auto;
+  background:url('/assets/registration.png');
+  background-size:cover;
+}

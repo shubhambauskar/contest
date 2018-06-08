@@ -1,17 +1,5 @@
 <div class= "register-photo"> 
-    <div class="container ">      
-        <% if @contest.errors.any? %>
-        <div class="alert alert-danger">
-        <h2>The following errors prevented the contest from getting created</h2>
-        <ul>
-            <% @contest.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-        </ul>  
-        </div>
-        <% end %>
-    </div>    
-
+<%= render 'shared/errors', obj: @contest %>
     <div class="form-container"> 
     <%= form_for @contest do |f| %>
         
