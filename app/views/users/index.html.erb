@@ -1,0 +1,16 @@
+<h1 align="center">All Contests Users</h1>
+<div class="container">
+    <% @users.each do |user| %>
+        <ul class="listing" align="center">
+            <div class="row" align="center">
+                <div class="jumbotron col-md-12 ">
+                    <li><%= link_to gravatar_for(user), user_path(user) %></li>
+                    <li class="contest-title">
+                        <%= link_to user.username, user_path(user) %>
+                    </li>
+                    <li><small><%= pluralize(user.contests.count, "contest") if user.contests %></small></li>
+                </div>
+            </div>    
+        </ul>
+    <% end %>
+</div>    
